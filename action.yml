@@ -2,4 +2,4 @@ name: "Resolve npm version"
 description: "Resolve npm version in feature branches"
 runs:
   using: "node16"
-  main: "index.js"
+  main: "merge-main-with-version.js"
