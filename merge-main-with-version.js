@@ -50,10 +50,13 @@ execSync("git merge main");
 
 // Update the version in package.json
 execSync(`npm version ${bump} --no-git-tag-version`);
+
+// Get the current version on our feature branch
+const newestVersion = require(pwd + "/package.json").version;
+console.log("New version:", newestVersion);
+
 execSync(`git add package.json`);
 try {
   execSync(`git add package-lock.json`);
 } catch (e) {}
-execSync(`git commit -m "update version to ${version}"`);
-execSync(`git log`);
-execSync(`git diff main`);
+execSync(`git commit -m "${newestVersion}"`);
